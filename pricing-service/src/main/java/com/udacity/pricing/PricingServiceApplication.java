@@ -5,6 +5,7 @@ import com.udacity.pricing.domain.price.PriceRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 
 import java.math.BigDecimal;
@@ -18,6 +19,7 @@ import java.util.stream.LongStream;
  * Creates a Spring Boot Application to run the Pricing Service.
  */
 @SpringBootApplication
+@EnableEurekaClient
 public class PricingServiceApplication {
     private static final Map<Long, Price> PRICES = LongStream
             .range(1, 20)

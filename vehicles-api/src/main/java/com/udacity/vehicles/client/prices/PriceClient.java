@@ -35,9 +35,9 @@ public class PriceClient {
             Price price = client
                     .get()
                     .uri(uriBuilder -> uriBuilder
-                            .path("services/price/")
-                            .queryParam("vehicleId", vehicleId)
-                            .build()
+                            .path("/prices")
+                            .path("/{id}")
+                            .build(vehicleId)
                     )
                     .retrieve().bodyToMono(Price.class).block();
 
