@@ -73,6 +73,7 @@ public class VehiclesApiApplication {
      */
     @Bean(name="pricing")
     public WebClient webClientPricing(@Value("${pricing.endpoint}") String endpoint) {
+        // using information found in this thread: https://knowledge.udacity.com/questions/755444
         Application app = eurekaClient.getApplication(endpoint);
         List<InstanceInfo> instances = app.getInstances();
         return WebClient.create(instances.get(0).getHomePageUrl());
